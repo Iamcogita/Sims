@@ -17,19 +17,18 @@ public class SimGame {
                 + " |Hunger: " + sim.getHungerIndex()+ " |Toilet: " + sim.getPeeIndex()+"\n"
                 + "-".repeat(40);
     }
+
     public void goToToilet(Sim sim) throws HouseException{
         sim.pee();
         checkExceptions(sim);
         Division.getHouseDivisions().forEach(Division::dirtMultiplier);
         System.out.println(sim.getName() + " went to the toilet.");
-        System.out.println(showStats(sim));
 
     }
     public void rest(Sim sim) throws HouseException{
         sim.setSleepLevel(-100);
         checkExceptions(sim);
         System.out.println(sim.getName() + " went to sleep.");
-        System.out.println(showStats(sim));
     }
     public void haveFun(Sim sim) throws HouseException{
         sim.setHungerLevel(10);
@@ -38,7 +37,6 @@ public class SimGame {
         checkExceptions(sim);
         Division.getHouseDivisions().forEach(Division::dirtMultiplier);
         System.out.println(sim.getName() + " had lots of fun!");
-        System.out.println(showStats(sim));
     }
     public void eatPizza(Sim sim) throws HouseException{
         checkExceptions(sim);
@@ -47,7 +45,11 @@ public class SimGame {
         sim.setPeeLevel(100);
         Division.getHouseDivisions().forEach(Division::dirtMultiplier);
         System.out.println(sim.getName() + " ate pizza.");
-        System.out.println(showStats(sim));
+    }
+    public void payHouseKeeper (Sim sim) throws HouseException{
+        Division.getHouseDivisions().forEach(Division::cleanHouse);
+        checkExceptions(sim);
+        System.out.println("House was cleaned.");
     }
     public void buyHouse(Sim sim) throws HouseException {
         if(!sim.HasHouse()){
@@ -57,10 +59,5 @@ public class SimGame {
             return;
         }
         throw new HouseException("Already have a house.");
-    }
-    public void payHouseKeeper (Sim sim) throws HouseException{
-        Division.getHouseDivisions().forEach(Division::cleanHouse);
-        checkExceptions(sim);
-        System.out.println("House was cleaned.");
     }
 }
