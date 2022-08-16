@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.List;
-
 public class Division extends House {
     private String type;
     private int dirtIndex;
@@ -16,14 +15,9 @@ public class Division extends House {
             new Division("BEDROOM" , 0, 10),
             new Division("OFFICE", 0, 25)
     );
-
     public String getType() {return type;}
-
     public int getDirtIndex() {return dirtIndex;}
-
     public void cleanHouse() {this.dirtIndex = 0 ;}
-
     public int dirtMultiplier() {return dirtIndex += dirtMultiplier;}
-
     public static List<Division> getHouseDivisions() {return houseDivisions;}
 }

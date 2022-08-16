@@ -8,16 +8,18 @@ public class SimGame {
         if(sim.getHungerIndex() >= 100){throw new HouseException("Should eat something."); }
         if(Division.getHouseDivisions().stream()
                 .anyMatch(division -> division.getDirtIndex() >= 100 )){
-            System.out.print("The " + Division.getHouseDivisions().stream().findFirst().get().getType());
+            System.out.print(sim.getName()+ "'s" + " " + Division.getHouseDivisions().stream().findFirst().get().getType());
             throw new HouseException(" is too dirty, should call HouseKeeper.");
         }
     }
-    public String showStats(Sim sim){
+    private String Stats(Sim sim){
         return sim.getName() + "'s Stats:\n"+ "-".repeat(40) + "\n|Sleep: " + sim.getSleepIndex()
                 + " |Hunger: " + sim.getHungerIndex()+ " |Toilet: " + sim.getPeeIndex()+"\n"
                 + "-".repeat(40);
     }
-
+    public void showStats(Sim sim){
+        System.out.println(Stats(sim));
+    }
     public void goToToilet(Sim sim) throws HouseException{
         sim.pee();
         checkExceptions(sim);
@@ -53,7 +55,7 @@ public class SimGame {
     }
     public void buyHouse(Sim sim) throws HouseException {
         if(!sim.HasHouse()){
-            sim.setMyHouse(new House());
+            sim.setMyHouse();
             sim.setHasHouse(true);
             System.out.printf("%s bought a house.\n", sim.getName() );
             return;

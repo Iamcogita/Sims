@@ -5,6 +5,16 @@ public class Main extends SimGame {
         try {
             SimGame SimI = new SimGame();
             Sim Cassandra = new Sim("Cassandra");
+            Sim David = new Sim("David");
+            SimI.buyHouse(David);
+            SimI.haveFun(David);
+            SimI.haveFun(David);
+            SimI.haveFun(David);
+            SimI.haveFun(David);
+            SimI.payHouseKeeper(David);
+            SimI.rest(David);
+            SimI.goToToilet(David);
+            SimI.haveFun(David);
             SimI.buyHouse(Cassandra);
             SimI.haveFun(Cassandra);
             SimI.payHouseKeeper(Cassandra);
@@ -14,7 +24,7 @@ public class Main extends SimGame {
             SimI.goToToilet(Cassandra);
             SimI.payHouseKeeper(Cassandra);
             SimI.haveFun(Cassandra);
-            SimI.haveFun(Cassandra);
+            SimI.haveFun(David);
             SimI.haveFun(Cassandra);
             SimI.goToToilet(Cassandra);
             SimI.payHouseKeeper(Cassandra);
@@ -23,7 +33,8 @@ public class Main extends SimGame {
             SimI.rest(Cassandra);
             SimI.haveFun(Cassandra);
             SimI.haveFun(Cassandra);
-            System.out.println(SimI.showStats(Cassandra));
+            SimI.showStats(Cassandra);
+            SimI.showStats(David);
             // Had Fun ...
 
         }
