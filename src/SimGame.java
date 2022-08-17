@@ -8,7 +8,8 @@ public class SimGame {
         if(sim.getHungerIndex() >= 100){throw new HouseException("Should eat something."); }
         if(Division.getHouseDivisions().stream()
                 .anyMatch(division -> division.getDirtIndex() >= 100 )){
-            System.out.print(sim.getName()+ "'s" + " " + Division.getHouseDivisions().stream().findFirst().get().getType());
+            System.out.print(sim.getName()+ "'s" + " " + Division.getHouseDivisions().stream()
+                    .filter(division -> division.getDirtIndex() >= 100).findFirst().get().getType());
             throw new HouseException(" is too dirty, should call HouseKeeper.");
         }
     }
@@ -23,13 +24,16 @@ public class SimGame {
     public void goToToilet(Sim sim) throws HouseException{
         sim.pee();
         checkExceptions(sim);
-        Division.getHouseDivisions().forEach(Division::dirtMultiplier);
+        Division.getHouseDivisions().stream().filter(division -> division.getType()
+                .equalsIgnoreCase("bathroom")).forEach(Division::dirtMultiplier);
         System.out.println(sim.getName() + " went to the toilet.");
 
     }
     public void rest(Sim sim) throws HouseException{
         sim.setSleepLevel(-100);
         checkExceptions(sim);
+        Division.getHouseDivisions().stream().filter(division -> division.getType()
+                .equalsIgnoreCase("bedroom")).forEach(Division::dirtMultiplier);
         System.out.println(sim.getName() + " went to sleep.");
     }
     public void haveFun(Sim sim) throws HouseException{
@@ -45,8 +49,17 @@ public class SimGame {
         sim.setHungerLevel(-50);
         sim.setSleepLevel(50);
         sim.setPeeLevel(100);
-        Division.getHouseDivisions().forEach(Division::dirtMultiplier);
+        Division.getHouseDivisions().stream().filter(division -> division.getType()
+                .equalsIgnoreCase("living_room")).forEach(Division::dirtMultiplier);
         System.out.println(sim.getName() + " ate pizza.");
+    }public void work(Sim sim) throws HouseException{
+        checkExceptions(sim);
+        sim.setHungerLevel(30);
+        sim.setSleepLevel(30);
+        sim.setPeeLevel(30);
+        Division.getHouseDivisions().stream().filter(division -> division.getType()
+                .equalsIgnoreCase("office")).forEach(Division::dirtMultiplier);
+        System.out.println(sim.getName() + " worked for a few hours.");
     }
     public void payHouseKeeper (Sim sim) throws HouseException{
         Division.getHouseDivisions().forEach(Division::cleanHouse);

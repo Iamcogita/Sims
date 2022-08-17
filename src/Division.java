@@ -10,7 +10,7 @@ public class Division extends House {
         this.dirtMultiplier = dirtMultiplier;
     }
     private static List<Division> houseDivisions = Arrays.asList(
-            new Division("BATHROOM", 0,30),
+            new Division("BATHROOM", 0,50),
             new Division("LIVING_ROOM", 0 , 20),
             new Division("BEDROOM" , 0, 10),
             new Division("OFFICE", 0, 25)

@@ -9,32 +9,24 @@ public class Main extends SimGame {
             SimI.buyHouse(David);
             SimI.haveFun(David);
             SimI.haveFun(David);
-            SimI.haveFun(David);
-            SimI.haveFun(David);
             SimI.payHouseKeeper(David);
             SimI.rest(David);
-            SimI.goToToilet(David);
-            SimI.haveFun(David);
+            SimI.showStats(David);
+            // Different Sim & house
             SimI.buyHouse(Cassandra);
-            SimI.haveFun(Cassandra);
-            SimI.payHouseKeeper(Cassandra);
-            SimI.haveFun(Cassandra);
-            SimI.rest(Cassandra);
             SimI.eatPizza(Cassandra);
             SimI.goToToilet(Cassandra);
             SimI.payHouseKeeper(Cassandra);
-            SimI.haveFun(Cassandra);
-            SimI.haveFun(David);
-            SimI.haveFun(Cassandra);
+            SimI.rest(Cassandra);
+            SimI.eatPizza(Cassandra);
+            SimI.goToToilet(Cassandra);
+            SimI.work(Cassandra);
+            SimI.work(Cassandra);
             SimI.goToToilet(Cassandra);
             SimI.payHouseKeeper(Cassandra);
-            SimI.haveFun(Cassandra);
-            SimI.haveFun(Cassandra);
             SimI.rest(Cassandra);
-            SimI.haveFun(Cassandra);
-            SimI.haveFun(Cassandra);
+            SimI.work(Cassandra);
             SimI.showStats(Cassandra);
-            SimI.showStats(David);
             // Had Fun ...
 
         }
