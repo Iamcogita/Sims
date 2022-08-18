@@ -1,5 +1,10 @@
 import docs.HouseException;
 
+/**
+ * first documentation ever
+ * by David aka Cogita
+ */
+
 public class Main extends SimGame {
     public static void main(String[] args) {
         try {
