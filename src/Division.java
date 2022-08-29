@@ -4,7 +4,7 @@ public class Division extends House {
     private String type;
     private int dirtIndex;
     private int dirtMultiplier;
-    private Division(String type, int dirtIndex, int dirtMultiplier ) {
+    Division(String type, int dirtIndex, int dirtMultiplier) {
         this.type = type;
         this.dirtIndex = dirtIndex;
         this.dirtMultiplier = dirtMultiplier;

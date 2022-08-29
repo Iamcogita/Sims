@@ -16,6 +16,11 @@ public class Main extends SimGame {
             SimI.haveFun(David);
             SimI.payHouseKeeper(David);
             SimI.rest(David);
+            SimI.work(David);
+            SimI.work(David);
+            SimI.takeCareOfYourself(David);
+            // created method above to avoid being in exception dead-end. Checks exceptions after resetting needs.
+            SimI.work(David);
             SimI.showStats(David);
             // Different Sim & house
             SimI.buyHouse(Cassandra);
@@ -31,6 +36,8 @@ public class Main extends SimGame {
             SimI.payHouseKeeper(Cassandra);
             SimI.rest(Cassandra);
             SimI.work(Cassandra);
+            SimI.haveFun(Cassandra);
+            SimI.haveFun(Cassandra);
             SimI.showStats(Cassandra);
             // Had Fun ...
 

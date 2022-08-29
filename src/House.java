@@ -1,5 +1,4 @@
 public class House {
-    public House(){
-        Division.getHouseDivisions();
-    }
+    public House(){Division.getHouseDivisions();}
+
 }
