@@ -62,12 +62,9 @@ public class SimGame {
         System.out.println(sim.getName() + " worked for a few hours.");
     }
     public void takeCareOfYourself(Sim sim) throws HouseException {
-        resetAllNeeds(sim);
+        sim.resetAllNeeds();
         checkExceptions(sim);
     }
-
-    private void resetAllNeeds(Sim sim) {sim.resetAllNeeds();}
-
     public void payHouseKeeper (Sim sim) throws HouseException{
         Division.getHouseDivisions().forEach(Division::cleanHouse);
         checkExceptions(sim);
